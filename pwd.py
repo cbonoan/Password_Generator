@@ -8,18 +8,17 @@ def menuWindow():
     pass
 
 def checkPwd(pwd):
-    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-    my_file = os.path.join(THIS_FOLDER, 'masterPwd.txt')
-    f = open(my_file, "r")
-    if f.mode == "r":
-        masterPwd = f.read()
-    
+    # Grabbing the last line of file which contains master password. 
+    with open('masterPwd.txt', 'r') as file:
+        for masterPwd in file:
+            pass  
+
     if pwd == masterPwd:
         messagebox.showinfo("Password Input", "Correct!")
-        menuWindow()        
+        menuWindow()
     else:
         messagebox.showinfo("Password Input", "Incorrect!")
-        return False        
+          
 
 if __name__ == "__main__":
     
