@@ -1,1 +1,3 @@
+This file will store your master password in order to access the vault of all your passwords. If you wish to move this file, make sure to add the changes in the python script so it will read the correct file.
+
 !23456789a
