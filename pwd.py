@@ -2,36 +2,44 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 import os
-
-class SeaofBTCapp(tk.Tk):
+from MainPage import MainPage
+class Window(tk.Tk):
+    # Credits to sentdex on Youtube for implementation of 
+    # frame switching in Tkinter
+    '''
+    Create all needed pages for application, and the one that needs 
+    to be shown will "raise" to the top of all the other frames
+    '''
     def __init__(self):
         
         tk.Tk.__init__(self)
         container = tk.Frame(self)
-
+        
         container.pack(side="top", fill="both", expand = True)
 
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
+        frame = MainPage(container,self)
+        self.frames[MainPage] = frame
+        frame.grid(row=0,column=0, sticky="nsew")
 
-        for F in (PasswordPage, GeneratorPage, VaultPage):
+        '''
+        for F in (MainPage, GeneratorPage, VaultPage):
 
             frame = F(container, self)
 
             self.frames[F] = frame
 
             frame.grid(row=0, column=0, sticky="nsew")
-
-        self.show_frame(StartPage)
+        '''
+        self.show_frame(MainPage)
 
     def show_frame(self, cont):
         frame = self.frames[cont]
         frame.tkraise()
 
-class PasswordPage():
-    pass
 class GeneratorPage():
     pass
 class VaultPage():
@@ -50,22 +58,7 @@ def checkPwd(pwd):
         messagebox.showinfo("Password Input", "Incorrect!")
 
 if __name__ == "__main__":
-
-    gui = Tk()
-    gui.geometry('500x500')
-    gui.title('Password Vault')
-    gui.iconbitmap()
-    gui.configure(bg='#81c6e3')
-
-    '''
-    field =  Entry(gui, bg='white', show="*")
-    field.pack()
-    field.focus_set()
-   
-    buttonEnter = Button(gui, text='Submit', command = lambda: checkPwd(field.get()))
-    buttonEnter.pack()
-    buttonEnter.focus_set()
-    '''
-
+    gui = Window()
+    gui.geometry('+500+200')
     gui.mainloop()
     
