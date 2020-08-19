@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import os
 from MainPage import MainPage
+from VaultPage import VaultPage
 class Window(tk.Tk):
     # Credits to sentdex on Youtube for implementation of 
     # frame switching in Tkinter
@@ -21,19 +22,21 @@ class Window(tk.Tk):
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
+
+        '''
         frame = MainPage(container,self)
         self.frames[MainPage] = frame
         frame.grid(row=0,column=0, sticky="nsew")
-
         '''
-        for F in (MainPage, GeneratorPage, VaultPage):
+        
+        for F in (MainPage, VaultPage):
 
             frame = F(container, self)
 
             self.frames[F] = frame
 
             frame.grid(row=0, column=0, sticky="nsew")
-        '''
+        
         self.show_frame(MainPage)
 
     def show_frame(self, cont):
@@ -42,9 +45,6 @@ class Window(tk.Tk):
 
 class GeneratorPage():
     pass
-class VaultPage():
-    pass
-
 def checkPwd(pwd):
     # Grabbing the last line of file which contains master password. 
     with open('masterPwd.txt', 'r') as file:
