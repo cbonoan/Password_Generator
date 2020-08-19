@@ -1,2 +1,5 @@
 # Password_Generator
-This python script will generate any length of passwords, as well as storing all your passwords and having a master password in order to access the vault.
+- Generate any length password with the ability to choose which symbols and characters are included. 
+
+# Future Implementations
+- A way to save passwords and display all on a separate page. 
