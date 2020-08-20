@@ -12,7 +12,7 @@ padding = 10
 lowerCase = string.ascii_lowercase
 upperCase = string.ascii_uppercase
 digits = string.digits
-specialChars = string.punctuation
+specialChars =  '!@#$%^&*()'
 class MainPage(tk.Frame):
     def __init__(self, parent, controller):
         self.conn =database.createConnection() # Create sqlite3 db in order to save password
