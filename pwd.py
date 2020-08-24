@@ -60,5 +60,7 @@ def checkPwd(pwd):
 if __name__ == "__main__":
     gui = Window()
     gui.geometry('+500+200')
+    icon = os.getcwd()+'\icon\lock.ico'
+    gui.iconbitmap(icon)
     gui.mainloop()
     

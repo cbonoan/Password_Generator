@@ -5,6 +5,7 @@ import string
 import random
 import database
 from VaultPage import VaultPage
+import os 
 
 FONT= ('System', 12)
 padding = 10
